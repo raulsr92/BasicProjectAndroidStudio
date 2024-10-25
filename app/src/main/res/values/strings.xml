@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Sistema1231casa2</string>
+    <string name="title_activity_begin">BeginActivity</string>
+
+    <string name="version">Android Studio, Versión Koala :) </string>
+    <string name="author"> By Google </string>
+    <string name="greeting">Hola</string>
+    <string name="button_text1">Empezar</string>
+    <string name="copyright">2024 ｜ Todos los derechos Reservados.</string>
+
+    <string name="paragraph_1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ipsum a orci sagittis, non commodo quam rhoncus. Curabitur maximus, mauris sit amet ullamcorper scelerisque, nunc nisl facilisis justo, vel luctus nibh sem ac nulla.
+    </string>
+
+    <string name="button_text2">Términos</string>
+    <string name="button_text3">Inicio</string>
+
+    <string name="button_text4">Cerrar</string>
+
+    <string name="title_activity_terms">TermsActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="terms_conditions">Términos y Condiciones</string>
+    <string name="terms_conditions_text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id vestibulum arcu. Nam non viverra augue. Fusce tincidunt vitae massa a imperdiet. Vivamus non fringilla ligula. Sed nec eros nec orci venenatis ullamcorper. Nunc tempus velit nec lectus viverra vulputate. Mauris facilisis consectetur augue sed tristique. Aliquam sollicitudin arcu convallis, ultrices quam eget, ultricies lacus. Donec convallis mauris sed urna viverra, non placerat metus tempor. Nunc ligula tellus, mattis in nunc at, consequat blandit magna. Cras laoreet augue a ante convallis placerat eu at felis. Nullam placerat, ligula non condimentum sollicitudin, velit quam blandit purus, id ornare lorem ante quis velit. In pulvinar eu lectus eget mollis. Fusce volutpat, ex ut ultricies iaculis, mi mauris finibus purus, auctor tempor lectus eros eget lacus. Phasellus odio massa, vulputate egestas magna porta, scelerisque dapibus quam.
+        \n\n
+        Nam ac maximus quam. In in nulla interdum, tincidunt felis eu, egestas dui. In hac habitasse platea dictumst. Etiam fringilla magna odio, sit amet interdum ante accumsan a. Integer in libero vel arcu laoreet vestibulum. Mauris placerat in urna elementum posuere. Suspendisse in metus feugiat sem tincidunt venenatis a ut neque. Morbi non vulputate nisl. Aliquam in enim a lacus pellentesque pellentesque convallis pretium dolor. Pellentesque sollicitudin dolor dignissim, sagittis elit eu, suscipit justo. Ut faucibus libero turpis, feugiat interdum est aliquam posuere. Aenean ac iaculis odio. Ut ac interdum quam. Duis eget est pulvinar, ullamcorper erat sed, tristique tortor. Donec ut lorem convallis mi malesuada dapibus.
+        \n\n
+        Vivamus varius bibendum interdum. Nulla non faucibus ante. Nam dui metus, hendrerit a finibus nec, placerat nec orci. Ut ut lacinia erat. Morbi nec tortor sed lorem viverra scelerisque sit amet et sem. Phasellus tempus neque sit amet augue sodales, et varius diam malesuada. Vestibulum luctus, tortor at condimentum auctor, urna turpis sollicitudin diam, at aliquet nisi felis non ligula. Suspendisse tincidunt lorem at purus mollis aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vitae lacus massa. Nulla nisi ligula, fringilla efficitur vehicula vitae, pellentesque id elit. Integer pretium blandit imperdiet. Aliquam erat volutpat. Nulla scelerisque fermentum purus quis consequat. Fusce hendrerit porttitor massa, non dignissim quam vulputate lacinia.
+        \n\n
+        Donec porttitor sodales ligula, ultricies vestibulum odio auctor eget. Duis sem lorem, luctus et hendrerit ac, pharetra id tortor. Aenean rutrum aliquam mauris ut luctus. Integer porta rhoncus neque, eu rhoncus lorem. Phasellus facilisis quis augue vitae venenatis. Duis ut turpis vitae augue condimentum scelerisque nec a nunc. In eget elementum arcu. Sed vel cursus risus. Aliquam dapibus tincidunt erat rhoncus tempor.
+        \n\n
+        Ut dictum lorem ex, vel mollis erat tincidunt malesuada. Proin faucibus augue et elit commodo auctor in et ligula. Mauris a quam suscipit, lobortis diam dapibus, laoreet neque. Proin sed sapien ac mauris dignissim placerat ac in ante. Aenean sit amet scelerisque ligula, ut dapibus ante. Etiam nec congue dui. Morbi risus magna, dignissim sit amet tortor eu, iaculis sodales nisl. Pellentesque consectetur est tellus, eget scelerisque leo convallis ut. Vivamus et elit lacus. Quisque eget placerat mi. Phasellus nec lacus ac leo rhoncus mollis eget et magna. Cras tristique vehicula est, sit amet sollicitudin enim vestibulum eu. Nunc consequat nisl orci, vel auctor libero volutpat in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ultricies id urna sed porta.
+        \n\n
+        Suspendisse sed ultricies est. Suspendisse imperdiet rutrum lorem, vel elementum orci molestie quis. Suspendisse consequat quis purus a efficitur. Curabitur vel suscipit urna, et lobortis purus. Maecenas id urna quis sapien vulputate sollicitudin euismod in augue. Vestibulum dui leo, pulvinar in mollis a, iaculis in dolor. Integer ut pretium ipsum. Praesent laoreet accumsan ipsum. Phasellus aliquet orci urna. Aliquam semper placerat tortor, et eleifend arcu scelerisque at.
+         \n\n
+        Quisque in porttitor urna. Suspendisse odio mi, elementum eu tristique vitae, egestas non metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam non sollicitudin lectus, non posuere ante. Praesent sed ligula vitae mi mattis vulputate. Fusce at tincidunt metus, nec suscipit felis. Duis lacus quam, dapibus in consectetur et, vehicula ut dolor. Duis tellus quam, finibus vehicula commodo a, accumsan eu ex. Duis ac tortor in magna aliquet placerat. Morbi interdum nisl in arcu elementum, tempus mattis quam elementum. Curabitur id metus id lacus consequat sollicitudin varius blandit velit. Duis vel rutrum est. Praesent imperdiet eget lacus a mollis. Nullam turpis nisi, accumsan a dapibus ut, eleifend ut dui.
+
+    </string>
+
+    <string name="begin_image_alt">Mujer escogiendo verduras en supermercado</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_suppliers">Proveedores</string>
+    <string name="title_activity_employees">Empleados</string>
+    <string name="title_activity_store">Tienda</string>
+    <string name="title_activity_products">ProductsActivity</string>
+    <string name="title_activity_product_details">ProductDetailsActivity</string>
+</resources>
