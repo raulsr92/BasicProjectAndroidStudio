@@ -47,6 +47,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sanchezraul.sistema1231casa2.content.EmployeesActivity
+import com.sanchezraul.sistema1231casa2.content.LoginActivity
 import com.sanchezraul.sistema1231casa2.content.StoreActivity
 import com.sanchezraul.sistema1231casa2.content.SuppliersActivity
 import com.sanchezraul.sistema1231casa2.ui.theme.Color1
@@ -209,6 +210,7 @@ class HomeActivity : ComponentActivity() {
             0 -> startActivity(Intent(this@HomeActivity, SuppliersActivity::class.java))
             1 -> startActivity(Intent(this@HomeActivity, EmployeesActivity::class.java))
             2 -> startActivity(Intent(this@HomeActivity, StoreActivity::class.java))
+            3 -> startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
             5 -> finish()
 
         }
