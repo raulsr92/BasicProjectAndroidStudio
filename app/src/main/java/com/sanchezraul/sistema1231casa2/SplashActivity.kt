@@ -28,8 +28,13 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.lifecycleScope
+import com.sanchezraul.sistema1231casa2.content.ProfileActivity
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
+import com.sanchezraul.sistema1231casa2.utils.UserStore
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class SplashActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,8 +65,22 @@ class SplashActivity : ComponentActivity() {
                 LaunchedEffect(key1 = true) {
                     startAnimation  = true
                     delay(5000)
-                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-                    finish()
+
+                    val userStore = UserStore(this@SplashActivity);
+
+                    lifecycleScope.launch {
+
+                        val data = userStore.leerDatosUsuario.first();
+
+                        if (data==" "){
+                            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                        } else{
+                            startActivity(Intent(this@SplashActivity, ProfileActivity::class.java))
+                        }
+
+                        finish()
+
+                    }
                 }
 
                 Box(
