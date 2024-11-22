@@ -36,7 +36,7 @@ import androidx.lifecycle.lifecycleScope
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.sanchezraul.sistema1231casa2.content.ui.theme.Sistema1231casa2Theme
+import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 import com.sanchezraul.sistema1231casa2.utils.UserStore
 import kotlinx.coroutines.launch
 
@@ -189,7 +189,6 @@ class LoginActivity : ComponentActivity() {
 
                 userStore.escribirDatosUsuario(response)
             }
-
 
         }
     }

@@ -46,6 +46,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sanchezraul.sistema1231casa2.content.DirectorsActivity
 import com.sanchezraul.sistema1231casa2.content.EmployeesActivity
 import com.sanchezraul.sistema1231casa2.content.LoginActivity
 import com.sanchezraul.sistema1231casa2.content.StoreActivity
@@ -80,7 +81,7 @@ class HomeActivity : ComponentActivity() {
                             title = {
                                 Text(
                                     stringResource(R.string.button_text3),
-                                    style = MaterialTheme.typography.displaySmall,
+                                    style = MaterialTheme.typography.displayLarge,
                                     color = Color.White
                                 )
                             }
@@ -211,6 +212,7 @@ class HomeActivity : ComponentActivity() {
             1 -> startActivity(Intent(this@HomeActivity, EmployeesActivity::class.java))
             2 -> startActivity(Intent(this@HomeActivity, StoreActivity::class.java))
             3 -> startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+            4 -> startActivity(Intent(this@HomeActivity, DirectorsActivity::class.java))
             5 -> finish()
 
         }

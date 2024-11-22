@@ -47,4 +47,6 @@
     <string name="title_activity_product_details">ProductDetailsActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_directors">Directores</string>
+    <string name="title_activity_directors_insert">Agregar un Director</string>
 </resources>
