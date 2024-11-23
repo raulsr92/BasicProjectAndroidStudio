@@ -238,6 +238,7 @@ class DirectorsUpdateActivity : ComponentActivity() {
 
                                 Button(
                                     onClick = {
+                                        deleteDirector(idDirector)
                                     },
                                     modifier = Modifier.fillMaxWidth()
                                         .height(55.dp)
@@ -268,6 +269,28 @@ class DirectorsUpdateActivity : ComponentActivity() {
                 }
             }
         }
+    }
+    private fun deleteDirector(idDirector: String) {
+        val queue = Volley.newRequestQueue(this)
+        val url = BASE_URL +"directoresdelete.php"
+
+        val stringRequest = object: StringRequest(
+            Request.Method.POST, url,
+            { response ->
+                Log.d("Response JSON ", response);
+
+                Toast.makeText(this, "Se eliminó director", Toast.LENGTH_SHORT).show()
+
+                startActivity(Intent(this@DirectorsUpdateActivity, DirectorsActivity::class.java))
+            },
+            {  }) {
+            override fun getParams(): MutableMap<String, String> {
+                val params = HashMap<String, String>()
+                params["iddirector"]= idDirector
+                return params
+            }
+        }
+        queue.add(stringRequest)
     }
 
     private fun updateDirector(idDirector: String, directorName: String, pelicula: String) {
