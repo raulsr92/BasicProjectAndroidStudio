@@ -58,6 +58,7 @@ import com.sanchezraul.sistema1231casa2.ui.theme.Color2
 import com.sanchezraul.sistema1231casa2.ui.theme.Color3
 import com.sanchezraul.sistema1231casa2.ui.theme.Color4
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
+import com.sanchezraul.sistema1231casa2.utils.BASE_URL
 import org.json.JSONArray
 
 class StoreActivity : ComponentActivity() {
@@ -65,7 +66,7 @@ class StoreActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/categorias.php"
+        val url = BASE_URL+"categorias.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -162,7 +163,7 @@ class StoreActivity : ComponentActivity() {
 
                                 ){
                                     AsyncImage(
-                                        model = "https://servicios.campus.pe/${item["foto"]}",
+                                        model = BASE_URL+item["foto"].toString(),
                                         contentDescription = null,
                                         Modifier.height(150.dp).fillMaxWidth(),
                                         contentScale = ContentScale.Crop

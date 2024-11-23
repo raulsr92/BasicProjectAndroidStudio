@@ -38,6 +38,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sanchezraul.sistema1231casa2.R
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
+import com.sanchezraul.sistema1231casa2.utils.BASE_URL
 import org.json.JSONArray
 
 class SuppliersActivity : ComponentActivity() {
@@ -45,7 +46,7 @@ class SuppliersActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/proveedores.php"
+        val url = BASE_URL+"proveedores.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

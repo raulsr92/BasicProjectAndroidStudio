@@ -35,6 +35,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sanchezraul.sistema1231casa2.ui.theme.Color2
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
+import com.sanchezraul.sistema1231casa2.utils.BASE_URL
 import org.json.JSONArray
 
 class ProductDetailsActivity : ComponentActivity() {
@@ -131,7 +132,8 @@ class ProductDetailsActivity : ComponentActivity() {
                             color = Color2
                         )
                         AsyncImage(
-                            model ="https://servicios.campus.pe/${imagengrande}",
+                            //model ="https://servicios.campus.pe/${imagengrande}",
+                            model = BASE_URL+imagengrande,
                             contentDescription = null,
                             modifier = Modifier.clip(RoundedCornerShape(12.dp))
 

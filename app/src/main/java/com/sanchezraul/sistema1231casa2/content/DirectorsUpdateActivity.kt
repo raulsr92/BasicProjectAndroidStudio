@@ -3,15 +3,13 @@ package com.sanchezraul.sistema1231casa2.content
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,7 +19,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
@@ -41,33 +38,48 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sanchezraul.sistema1231casa2.R
-import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 import com.sanchezraul.sistema1231casa2.ui.theme.Color1
 import com.sanchezraul.sistema1231casa2.ui.theme.Color2
 import com.sanchezraul.sistema1231casa2.ui.theme.Color3
-import com.sanchezraul.sistema1231casa2.ui.theme.Color4
+import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 import com.sanchezraul.sistema1231casa2.utils.BASE_URL
 
-class DirectorsInsertActivity : ComponentActivity() {
+class DirectorsUpdateActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //Leer data de la página origen
+
+        var bundle = intent.extras
+
+        val iddirector = bundle!!.getString("iddirector")
+        val nombres = bundle.getString("nombres")
+        val peliculas = bundle.getString("peliculas")
+
+
         enableEdgeToEdge()
         setContent {
-            var directorName by remember { mutableStateOf("") }
-            var pelicula by remember { mutableStateOf("") }
+
+            // Variables mutables que controlan la info de cajas de texto
+
+            var idDirector by remember { mutableStateOf(iddirector.toString()) }
+            var directorName by remember { mutableStateOf(nombres.toString()) }
+            var pelicula by remember { mutableStateOf(peliculas.toString()) }
 
             Sistema1231casa2Theme {
                 Scaffold(
@@ -86,7 +98,7 @@ class DirectorsInsertActivity : ComponentActivity() {
                             ),
                             title = {
                                 Text(
-                                    text = stringResource(id = R.string.title_activity_directors_insert),
+                                    text = stringResource(id = R.string.title_activity_directors_update),
                                     style = MaterialTheme.typography.displayLarge,
                                     color = Color.White
                                 )
@@ -110,30 +122,45 @@ class DirectorsInsertActivity : ComponentActivity() {
                         modifier = Modifier
                             .padding(innerPadding)
                             .fillMaxSize()
-                            .background(Color.White),
-                        horizontalAlignment =  Alignment.CenterHorizontally,
-                        verticalArrangement =  Arrangement.Bottom,
-
-                    ) {
+                            .background(Color.White))
+                    {
                         Spacer(modifier = Modifier.height(15.dp))
 
                         Column (
                             modifier = Modifier.fillMaxWidth()
-                                .padding(0.dp, 20.dp, 0.dp, 10.dp)
+                                .padding(10.dp, 20.dp, 10.dp, 10.dp)
                             ,
                             horizontalAlignment = Alignment.CenterHorizontally,
                         ){
                             Text(
-                                text = "Registra un nuevo director".uppercase(),
+                                text = "Actualizar/Eliminar información de director".uppercase(),
+                                textAlign = TextAlign.Center,
                                 style = MaterialTheme.typography.displayMedium,
                                 color = Color1
                             )
                         }
-                        Spacer(modifier = Modifier.height(0.dp))
+                        Spacer(modifier = Modifier.height(20.dp))
                         Column(
                             modifier = Modifier.fillMaxSize(),
                             horizontalAlignment = Alignment.CenterHorizontally,
-                            ) {
+                        ) {
+                            OutlinedTextField(
+                                value= idDirector,
+                                //shape = RoundedCornerShape(20.dp),
+                                onValueChange = {
+                                },
+                                label = {
+                                    Text(
+                                        text="Identificador",
+                                        style = MaterialTheme.typography.displaySmall,
+                                    )
+                                },
+                                textStyle = TextStyle(
+                                    color = Color2,
+                                )
+                            )
+                            Spacer(modifier = Modifier.height(10.dp))
+
                             OutlinedTextField(
                                 value= directorName,
                                 //shape = RoundedCornerShape(20.dp),
@@ -170,7 +197,7 @@ class DirectorsInsertActivity : ComponentActivity() {
                                 )
                             )
 
-                            Spacer(modifier = Modifier.height(15.dp))
+                            Spacer(modifier = Modifier.height(30.dp))
 
                             Column (
                                 modifier = Modifier
@@ -180,43 +207,89 @@ class DirectorsInsertActivity : ComponentActivity() {
                             ) {
                                 Button(
                                     onClick = {
-                                        insertDirector(directorName,pelicula)
+                                        updateDirector(idDirector,directorName,pelicula)
                                     },
                                     modifier = Modifier.fillMaxWidth()
                                         .height(55.dp)
-
                                 ) {
-                                    Text(
-                                        text = "Guardar".uppercase(),
-                                        color  = Color1,
-                                        style = MaterialTheme.typography.displayMedium,
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.Center
+
+                                    ) {
+                                        Text(
+                                            text = "Actualizar".uppercase(),
+                                            color  = Color1,
+                                            style = MaterialTheme.typography.displayMedium,
                                         )
+                                        Spacer(modifier = Modifier.width(15.dp))
+                                        Image(
+                                            painter = painterResource(id = R.drawable.edit),
+                                            contentDescription = "icons",
+                                            modifier = Modifier.size(25.dp),
+                                            colorFilter = ColorFilter.tint(Color1)
+                                        )
+                                    }
+
+                                }
+
+                                Spacer(modifier = Modifier.height(10.dp))
+
+                                Button(
+                                    onClick = {
+                                    },
+                                    modifier = Modifier.fillMaxWidth()
+                                        .height(55.dp)
+                                ) {
+                                    Row (
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.Center
+                                    ){
+                                        Text(
+                                            text = "Eliminar".uppercase(),
+                                            color  = Color1,
+                                            style = MaterialTheme.typography.displayMedium,
+                                        )
+                                        Spacer(modifier = Modifier.width(15.dp))
+
+                                        Image(
+                                            painter = painterResource(id = R.drawable.trashblack),
+                                            contentDescription = "icons",
+                                            modifier = Modifier.size(25.dp),
+                                            colorFilter = ColorFilter.tint(Color1)
+                                        )
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-
         }
     }
 
-    private fun insertDirector(directorName: String, pelicula: String) {
-        Log.d("Response", directorName + " dirigió: "+ pelicula)
+    private fun updateDirector(idDirector: String, directorName: String, pelicula: String) {
+
+        Log.d("Response", idDirector + " " +directorName + " " + pelicula)
 
         val queue = Volley.newRequestQueue(this)
-        val url = BASE_URL+"directoresinsert.php"
+        val url = BASE_URL +"directoresupdate.php"
 
         val stringRequest = object: StringRequest(
             Request.Method.POST, url,
             { response ->
                 Log.d("Response JSON ", response);
 
-                startActivity(Intent(this@DirectorsInsertActivity, DirectorsActivity::class.java))
+                Toast.makeText(this, "Se actualizó director", Toast.LENGTH_SHORT).show()
+
+                startActivity(Intent(this@DirectorsUpdateActivity, DirectorsActivity::class.java))
             },
             {  }) {
             override fun getParams(): MutableMap<String, String> {
                 val params = HashMap<String, String>()
+                params["iddirector"]= idDirector
                 params["nombres"] = directorName
                 params["peliculas"] = pelicula
                 return params
@@ -224,7 +297,5 @@ class DirectorsInsertActivity : ComponentActivity() {
         }
         queue.add(stringRequest)
     }
-
-
 }
 

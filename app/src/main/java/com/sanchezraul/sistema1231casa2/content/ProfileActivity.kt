@@ -28,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
@@ -38,6 +39,7 @@ import com.sanchezraul.sistema1231casa2.ui.theme.Color3
 import com.sanchezraul.sistema1231casa2.ui.theme.Color4
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 import com.sanchezraul.sistema1231casa2.utils.UserStore
+import com.sanchezraul.sistema1231casa2.utils.usuarioActivo
 import kotlinx.coroutines.launch
 
 class ProfileActivity : ComponentActivity() {
@@ -57,7 +59,14 @@ class ProfileActivity : ComponentActivity() {
                 {
                     Text(
                         text = "Bienvenido",
-                    )
+                        style = MaterialTheme.typography.displaySmall,
+
+                        )
+                    Text(
+                        text = usuarioActivo.getString("nombres"),
+                        style = MaterialTheme.typography.displayLarge,
+
+                        )
                     Button(
                         onClick = {
                             showAlertDialog = true;

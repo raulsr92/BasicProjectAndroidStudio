@@ -32,9 +32,11 @@ import androidx.lifecycle.lifecycleScope
 import com.sanchezraul.sistema1231casa2.content.ProfileActivity
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 import com.sanchezraul.sistema1231casa2.utils.UserStore
+import com.sanchezraul.sistema1231casa2.utils.usuarioActivo
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import org.json.JSONArray
 
 class SplashActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,6 +78,9 @@ class SplashActivity : ComponentActivity() {
                             startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                         } else{
                             startActivity(Intent(this@SplashActivity, ProfileActivity::class.java))
+
+                            usuarioActivo = JSONArray(data).getJSONObject(0)
+
                         }
 
                         finish()

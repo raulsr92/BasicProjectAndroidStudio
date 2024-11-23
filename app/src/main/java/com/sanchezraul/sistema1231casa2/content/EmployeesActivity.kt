@@ -41,6 +41,7 @@ import com.sanchezraul.sistema1231casa2.ui.theme.Color2
 import com.sanchezraul.sistema1231casa2.ui.theme.Color3
 import com.sanchezraul.sistema1231casa2.ui.theme.Color4
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
+import com.sanchezraul.sistema1231casa2.utils.BASE_URL
 import org.json.JSONArray
 
 class EmployeesActivity : ComponentActivity() {
@@ -48,7 +49,7 @@ class EmployeesActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/empleados.php"
+        val url = BASE_URL+"empleados.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -161,7 +162,7 @@ class EmployeesActivity : ComponentActivity() {
     fun DrawEmployees(employee: HashMap<String, String>, screenHeightpx: Float) {
 
             AsyncImage(
-                model = "https://servicios.campus.pe/fotos/"+employee["foto"].toString(),
+                model = BASE_URL+"fotos/"+employee["foto"].toString(),
                 contentDescription = null,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop

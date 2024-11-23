@@ -62,6 +62,7 @@ import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 import com.sanchezraul.sistema1231casa2.ui.theme.Color1
 import com.sanchezraul.sistema1231casa2.ui.theme.Color3
 import com.sanchezraul.sistema1231casa2.ui.theme.Color4
+import com.sanchezraul.sistema1231casa2.utils.BASE_URL
 import org.json.JSONArray
 
 class ProductsActivity : ComponentActivity() {
@@ -92,7 +93,7 @@ class ProductsActivity : ComponentActivity() {
     private fun readService(idcategoria: String?) {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/productos.php?idcategoria=$idcategoria";
+        val url = BASE_URL+"productos.php?idcategoria=$idcategoria";
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -192,16 +193,13 @@ class ProductsActivity : ComponentActivity() {
                                     modifier = Modifier
                                         .height(300.dp)
                                         .clickable {
-
                                             startActivity(Intent(
                                                 this@ProductsActivity,
                                                 ProductDetailsActivity::class.java
                                             ).apply {
                                                 putExtra("idproducto", product["idproducto"])
                                             })
-
                                         }
-
                                 ){
                                     Column (
                                         //modifier = Modifier.padding(8.dp,10.dp,5.dp,10.dp)
@@ -211,10 +209,11 @@ class ProductsActivity : ComponentActivity() {
                                         val precio = product["precio"].toString().toFloat();
                                         val porcentajeDescuento = (1-(precioRebajado/precio))*100;
 
-                                        var rutaImagen = "https://servicios.campus.pe/imagenes/nofoto.jpg"
+                                        var rutaImagen = BASE_URL+"imagenes/nofoto.jpg"
 
                                         if (product["imagenchica"] != "null"){
-                                            rutaImagen = "https://servicios.campus.pe/${product["imagenchica"].toString()}"
+                                            //rutaImagen = "https://servicios.campus.pe/${product["imagenchica"].toString()}"
+                                            rutaImagen = BASE_URL+product["imagenchica"]
                                         }
                                         Box(
                                             //contentAlignment = Alignment.TopStart

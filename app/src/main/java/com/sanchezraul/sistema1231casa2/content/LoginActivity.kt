@@ -37,8 +37,11 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
+import com.sanchezraul.sistema1231casa2.utils.BASE_URL
 import com.sanchezraul.sistema1231casa2.utils.UserStore
+import com.sanchezraul.sistema1231casa2.utils.usuarioActivo
 import kotlinx.coroutines.launch
+import org.json.JSONArray
 
 class LoginActivity : ComponentActivity() {
 
@@ -141,7 +144,7 @@ class LoginActivity : ComponentActivity() {
         // Conectarnos a Servicio WEB
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/iniciarsesion.php"
+        val url = BASE_URL+"iniciarsesion.php"
 
         val stringRequest = object: StringRequest(
             Request.Method.POST, url,
@@ -180,6 +183,8 @@ class LoginActivity : ComponentActivity() {
     } // verifyLogin
 
     private fun verifySaveSesion(response: String) {
+
+        usuarioActivo = JSONArray(response).getJSONObject(0)
 
         if (checkSaveSession){
 

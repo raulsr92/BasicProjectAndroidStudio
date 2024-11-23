@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,6 +44,7 @@ import com.sanchezraul.sistema1231casa2.content.ui.theme.Sistema1231casa2Theme
 import com.sanchezraul.sistema1231casa2.ui.theme.Color1
 import com.sanchezraul.sistema1231casa2.ui.theme.Color3
 import com.sanchezraul.sistema1231casa2.ui.theme.Color4
+import com.sanchezraul.sistema1231casa2.utils.BASE_URL
 import org.json.JSONArray
 
 class DirectorsActivity : ComponentActivity() {
@@ -50,7 +52,7 @@ class DirectorsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/directores.php"
+        val url = BASE_URL+"directores.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -152,10 +154,13 @@ class DirectorsActivity : ComponentActivity() {
                             items(arrayList) { item ->
                                 Column(
                                     modifier = Modifier.border(
-                                        1.dp,
-                                        MaterialTheme.colorScheme.primary
+                                        1.dp, MaterialTheme.colorScheme.primary
                                     )
-                                        .padding(12.dp, 15.dp, 12.dp, 15.dp).fillMaxWidth()
+                                        .padding(12.dp, 15.dp, 12.dp, 15.dp)
+                                        .fillMaxWidth()
+                                        .clickable {
+                                            selectDirector(item)
+                                        }
                                 ) {
                                     Row(
                                         verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
@@ -189,6 +194,20 @@ class DirectorsActivity : ComponentActivity() {
 
             }
         }
+    }
+
+    private fun selectDirector(item: HashMap<String, String>) {
+
+        val intent = Intent(this, DirectorsUpdateActivity::class.java)
+
+        var bundle = Bundle().apply {
+            putString("iddirector", item["iddirector"])
+            putString("nombres", item["nombres"])
+            putString("peliculas", item["peliculas"])
+        }
+        intent.putExtras(bundle);
+
+        startActivity(intent)
     }
 }
 
