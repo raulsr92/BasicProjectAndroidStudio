@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.sanchezraul.sistema1231casa2.ui.theme.Color1
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 
 class TermsActivity : ComponentActivity() {
@@ -35,7 +36,8 @@ class TermsActivity : ComponentActivity() {
                 ){
                     Text(
                         stringResource(R.string.terms_conditions),
-                        style = MaterialTheme.typography.headlineLarge
+                        style = MaterialTheme.typography.headlineLarge,
+                        color = Color1
                     )
 
                     Column (

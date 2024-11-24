@@ -7,11 +7,13 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -28,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,6 +39,7 @@ import androidx.lifecycle.lifecycleScope
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.sanchezraul.sistema1231casa2.ui.theme.Color1
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 import com.sanchezraul.sistema1231casa2.utils.BASE_URL
 import com.sanchezraul.sistema1231casa2.utils.UserStore
@@ -72,7 +76,8 @@ class LoginActivity : ComponentActivity() {
 
                     Text(
                         text = "Iniciar Sesión",
-                        style = MaterialTheme.typography.headlineLarge
+                        style = MaterialTheme.typography.headlineLarge,
+                        color = Color1
                     )
 
                     OutlinedTextField(
@@ -120,19 +125,31 @@ class LoginActivity : ComponentActivity() {
                         onClick = {
                             loginService(usuario, clave);
                         },
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
+                        modifier = Modifier.align(Alignment.CenterHorizontally).fillMaxWidth()
+                            .height(45.dp)
+
                     ) {
                         Text(
-                            text = "Iniciar Sesión"
-                        )
+                            text = "Iniciar Sesión",
+                            color  = Color1,
+                            )
                     }
 
+                    Spacer(modifier = Modifier.height(20.dp))
 
-
-
+                    Button(
+                        onClick = {
+                            startActivity(Intent(this@LoginActivity, UserActivity::class.java))
+                        },
+                        modifier = Modifier.align(Alignment.CenterHorizontally).fillMaxWidth()
+                            .height(45.dp)
+                    ) {
+                        Text(
+                            text = "Únete al Club",
+                            color  = Color1,
+                            )
+                    }
                 }
-
-
             }
         }
     }

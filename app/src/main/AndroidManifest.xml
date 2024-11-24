@@ -15,6 +15,21 @@
         android:theme="@style/Theme.Sistema1231casa2"
         tools:targetApi="31">
         <activity
+            android:name=".content.UserUpdateActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user_update"
+            android:theme="@style/Theme.Sistema1231casa2" />
+        <activity
+            android:name=".content.UserInsertActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user_insert"
+            android:theme="@style/Theme.Sistema1231casa2" />
+        <activity
+            android:name=".content.UserActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user"
+            android:theme="@style/Theme.Sistema1231casa2" />
+        <activity
             android:name=".content.DirectorsUpdateActivity"
             android:exported="false"
             android:label="@string/title_activity_directors_update"

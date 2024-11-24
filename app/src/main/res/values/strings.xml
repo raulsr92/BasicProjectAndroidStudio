@@ -50,4 +50,7 @@
     <string name="title_activity_directors">Directores</string>
     <string name="title_activity_directors_insert">Agregar un Director</string>
     <string name="title_activity_directors_update">Editar información del Director</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_user_insert">UserInsertActivity</string>
+    <string name="title_activity_user_update">UserUpdateActivity</string>
 </resources>
