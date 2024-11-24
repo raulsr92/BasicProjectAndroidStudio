@@ -3,8 +3,11 @@
     <string name="title_activity_begin">BeginActivity</string>
 
     <string name="version">Android Studio, Versión Koala :) </string>
-    <string name="author"> By Google </string>
-    <string name="greeting">Hola</string>
+    <string name="presentation"> Our store brings you the latest technology! </string>
+    <string name="name_main"> The Future Store </string>
+    <string name="creator"> Raúl Sánchez R. - Coding with Raul </string>
+
+    <string name="greeting">Welcome | Bienvenido | Bem-vindo | Benvenuti |  Willkommen </string>
     <string name="button_text1">Empezar</string>
     <string name="copyright">2024 ｜ Todos los derechos Reservados.</string>
 
@@ -46,7 +49,7 @@
     <string name="title_activity_products">ProductsActivity</string>
     <string name="title_activity_product_details">ProductDetailsActivity</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_profile">Bienvenido a su página de perfil</string>
     <string name="title_activity_directors">Directores</string>
     <string name="title_activity_directors_insert">Agregar un Director</string>
     <string name="title_activity_directors_update">Editar información del Director</string>

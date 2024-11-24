@@ -10,6 +10,7 @@ import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
@@ -30,6 +31,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import com.sanchezraul.sistema1231casa2.content.ProfileActivity
+import com.sanchezraul.sistema1231casa2.ui.theme.Color1
+import com.sanchezraul.sistema1231casa2.ui.theme.Color2
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 import com.sanchezraul.sistema1231casa2.utils.UserStore
 import com.sanchezraul.sistema1231casa2.utils.usuarioActivo
@@ -89,8 +92,10 @@ class SplashActivity : ComponentActivity() {
                 }
 
                 Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
+                    modifier = Modifier.fillMaxSize().background(Color2),
+
+                    contentAlignment = Alignment.Center,
+
                 ) {
                     Image(
                         painter= painterResource (R.drawable.logo),
@@ -102,13 +107,9 @@ class SplashActivity : ComponentActivity() {
                                 scaleX = scale,
                                 scaleY = scale
                             )
-
                     )
 
                 }
-
-
-
             }
         }
     }

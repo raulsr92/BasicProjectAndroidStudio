@@ -18,6 +18,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.sanchezraul.sistema1231casa2.R
+import com.sanchezraul.sistema1231casa2.ui.theme.Color3
+import com.sanchezraul.sistema1231casa2.ui.theme.Color4
 
 // Composable functions
 @Composable
@@ -42,7 +44,7 @@ fun headerImageWithLayer(drawableResource: Int, descriptionResource: Int, titleR
 
         Text(
             stringResource(id = titleResource), //id es variable Integer
-            color = Color.White,
+            color = Color4,
             style = MaterialTheme.typography.displayLarge,
             modifier = Modifier.padding(all = dimensionResource(R.dimen.space_3))
         )

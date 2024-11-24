@@ -11,10 +11,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -31,6 +33,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sanchezraul.sistema1231casa2.components.headerImageWithLayer
+import com.sanchezraul.sistema1231casa2.ui.theme.Color1
+import com.sanchezraul.sistema1231casa2.ui.theme.Color4
 import com.sanchezraul.sistema1231casa2.ui.theme.Sistema1231casa2Theme
 
 class BeginActivity : ComponentActivity() {
@@ -49,31 +53,50 @@ class BeginActivity : ComponentActivity() {
                     Column (
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(all = dimensionResource(R.dimen.space_3)),
+                            .padding(20.dp,10.dp,20.dp,0.dp)
+                            //.background(Color.Blue)
+                        ,
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.SpaceBetween
+                        verticalArrangement = Arrangement.Center
                     ){
                         Text(
-                            stringResource(R.string.button_text1),
-                            style = MaterialTheme.typography.headlineLarge
+                            text = "Nosotros",
+                            style = MaterialTheme.typography.headlineLarge,
+                            color = Color1
                         )
+                        Spacer(modifier = Modifier.height(20.dp))
+
                         Text(
                             stringResource(R.string.paragraph_1),
                         )
+                        Spacer(modifier = Modifier.height(30.dp))
+
                         Row (
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ){
-                            Button(onClick = {
+                            Button(
+                                onClick = {
                                 startActivity(Intent(this@BeginActivity, TermsActivity::class.java))
-                            }) {
-                                Text(stringResource(R.string.button_text2),)
+                            },
+                                modifier = Modifier.height(50.dp).width(150.dp)
+
+                            ) {
+                                Text(stringResource(R.string.button_text2),
+                                    color  = Color1,
+                                    style = MaterialTheme.typography.displayMedium)
                             }
                             Button(onClick = {
                                 startActivity(Intent(this@BeginActivity, HomeActivity::class.java))
 
-                            }) {
-                                Text(stringResource(R.string.button_text3),)
+                            },
+                                modifier = Modifier.height(50.dp).width(150.dp)
+                            ) {
+                                Text(stringResource(R.string.button_text3),
+                                    color  = Color1,
+                                    style = MaterialTheme.typography.displayMedium,
+
+                                )
                             }
                         }
 

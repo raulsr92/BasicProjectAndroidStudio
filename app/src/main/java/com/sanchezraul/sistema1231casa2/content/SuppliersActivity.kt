@@ -127,7 +127,7 @@ class SuppliersActivity : ComponentActivity() {
                         .background(Color.White)
                 ) {
                     AsyncImage(
-                        model = "https://martech.org/wp-content/uploads/2021/09/Cinemark.jpg",
+                        model = "https://p2.zoon.ru/preview/eN4gZnGnHnWBcjXC1WLbyg/2400x1500x85/1/a/4/original_61305f5d991280575e7022d4_62684b358ac356.28927431.jpg",
                         contentDescription = null,
                     )
                 LazyColumn(
